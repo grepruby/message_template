@@ -45,15 +45,28 @@
   </div>
 </div>
 
+<div>
+<div class="flash row margin-auto">
+  <div class="span12 full-width">
+    <% if flash[:alert] %>
+      <p class="alert"> 
+        <%= flash[:alert] %>
+      </p>
+    <% end %>
+    <% if flash[:notice] %>
+      <p class="notice"> 
+        <%= flash[:notice] %>
+      </p>
+    <% end %>
+  </div>
+</div>
+</div>
+
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span3">
       <div class="well sidebar-nav">
       	  <ul class="nav nav-list">
-            <li class="nav-header">Sidebar</li>
-            <li class="active">
-          	  <%= link_to('Home', root_path,:title=>"Home") %>
-            </li>
             <%= render "shared/sidebar_menu"%>
           </ul>
       </div><!--/.well -->

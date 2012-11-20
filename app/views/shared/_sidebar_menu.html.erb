@@ -1,8 +1,11 @@
+<li class="<%= 'active' if params[:controller] != 'messages' and params[:controller] != 'message_templates'%>">
+  <%= link_to('Home', root_path,:title=>"Home") %>
+</li>
 <% if user_signed_in? %>
-  <li>
+  <li class=" <%= 'active' if params[:controller] == 'messages' %>">
     <%= link_to('Messages', messages_path,:title=>"Messages") %>
   </li>
-  <li>
+  <li  class=" <%= 'active' if params[:controller] == 'message_templates' %>">
     <%= link_to('Message Templates', message_templates_path,:title=>"Message Templates") %>
   </li>
-<%end%>  
+<%end%>

@@ -1,4 +1,7 @@
 class MessageTemplatesController < ApplicationController
+
+  before_filter :authenticate_user!
+  
   # GET /message_templates
   # GET /message_templates.json
   def index
