@@ -1,9 +1,16 @@
-<h4>Messages</h4>
 
+<%= render "form"%>
+<div class="clear"></div>
+<hr/>
+<h4>Messages</h4>
 <div id="messages_list">
-  <% @messages.each do |message| %>
-    <p><%= message.responses %></p>
-  <% end %>
+  <table class="table-bordered">
+    <% @messages.each do |message| %>
+      <tr>
+          <td><%= message.responses %></td>
+          <td><%= message.user.name %></td>
+      </tr>
+    <% end %>
+  </table>
 </div>
 <br/>
-<%= render "form"%>
