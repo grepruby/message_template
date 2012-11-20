@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+  <li>
+    <%= link_to('Messages', messages_path,:title=>"Messages") %>
+  </li>
+  <li>
+    <%= link_to('Message Templates', message_templates_path,:title=>"Message Templates") %>
+  </li>
+<%end%>  
