@@ -3,6 +3,7 @@
 <head>
   <title><%= content_for?(:title) ? yield(:title) : "MessageManagement" %></title>
   <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
   <style type="text/css">
       body {
         padding-top: 60px;
@@ -35,9 +36,6 @@
           <%end%>
         </p>
         <ul class="nav">
-          <li class="active">
-          	<%= link_to('Home', root_path,:title=>"Home") %>
-          </li>
           <%= render "shared/sidebar_menu"%>
         </ul>
       </div><!--/.nav-collapse -->
@@ -85,6 +83,5 @@
   </footer>
 
 </div><!--/.fluid-container-->
-<%= javascript_include_tag "application" %>
 </body>
 </html>
