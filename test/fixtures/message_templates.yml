@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: 
+  active_from: 2012-11-20 16:29:50
+  active_until: 2012-11-20 16:29:50
+  status: MyString
+
+two:
+  name: 
+  active_from: 2012-11-20 16:29:50
+  active_until: 2012-11-20 16:29:50
+  status: MyString
