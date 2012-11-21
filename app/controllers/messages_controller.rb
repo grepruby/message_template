@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.all
+    @messages = Message.order("created_at DESC")
     @message = Message.new
   end
 
@@ -32,6 +32,7 @@ class MessagesController < ApplicationController
     @message = Message.new(params[:message])
     respond_to do |format|
       if @message.save
+        Resque.enqueue(QueuingMessage, params[:message][:user_id],params[:message][:response], params[:message][:message_template_id])
         format.html { redirect_to @message, notice: 'Message was successfully created.' }
         format.js
       else

@@ -27,6 +27,8 @@ gem 'jquery-ui-rails'
 gem 'devise'
 
 gem 'simple_form'
+
+gem 'resque'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

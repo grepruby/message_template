@@ -1,1 +1,9 @@
-$('#messages_list').append("<%= escape_javascript(render(:partial => "messages_list")) %>");
+<% if @message.errors.any? %>
+	str='<h4><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h4>' +
+      '<ul><% @message.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %></ul>';
+    $("#js_error_explanation").html(str);
+<% else %>
+    $('#messages_list').prepend("<%= escape_javascript(render(:partial => "messages_list")) %>");
+    $('#message_responses').val('');
+    $("#js_error_explanation").html('');
+<% end %>

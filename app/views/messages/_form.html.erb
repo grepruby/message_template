@@ -1,5 +1,6 @@
-<h4>Send Message</h4>
 <%= simple_form_for(@message,:remote=>true) do |f| %>
+  <fieldset>
+  <legend>Send Message</legend>
   <% if @message.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
@@ -11,31 +12,26 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="row">
-    <div class="span4">
-     <%= f.label :users,:class=>"control-label" %>
-     <%= f.select :user_id ,User.all.map{|u| [u.name,u.id]}%>
+  
+  <div id="js_error_explanation">
+  </div> 
+  
+    <div class="controls controls-row">
+      <%= f.select :user_id ,User.all.map{|u| [u.name,u.id]},{ :prompt => 'Select a User' },:class=>"span4"%>
+     
+      <%= f.select :message_template_id ,MessageTemplate.all.map{|m| [m.name,m.id]},{ :prompt => 'Select a Message Template' },:class=>"span4"%>
+     
     </div>
 
-    <div class="span4">
-      <%= f.label :message_template,:class=>"control-label" %>
-      <%= f.select :message_template_id ,MessageTemplate.all.map{|m| [m.name,m.id]}%>
-    </div>
+    <div class="controls controls-row">
+      <%= f.label :responses,:class=>"control-label" %>
+      <%= f.text_area :responses,:rows=>3,:style=>"width: 390px; height: 55px;" %>
+    </div>    
     
-    <div class="span2">
+    <div class="controls controls-row">
       <br/>
-      <%= f.submit %>
+       <button class="btn btn-info" type="submit">Send</button>
     </div>
-  </div>
-
-<!--
-  <div class="control-group">
-    <%= f.label :responses,:class=>"control-label" %>
-    <div class="controls">
-     <%= f.text_area :responses ,:rows=>3%>
-    </div>
-  </div>
--->
-
+  
+  </fieldset>
 <% end %>
