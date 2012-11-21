@@ -1,6 +1,7 @@
 class QueuingMessage
+=begin
   @queue = :message_serve
-
+ 
   #Queuing the message and sending the notification via email to the user
   def self.perform(user_id,response,message_template_id)
     user = User.find(user_id)
@@ -8,4 +9,5 @@ class QueuingMessage
     
     UserMailer.email_message(user,message_template,response).deliver
   end
+=end
 end
