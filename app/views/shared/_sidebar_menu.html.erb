@@ -1,4 +1,4 @@
-<li class="<%= 'active' if params[:controller] != 'messages' and params[:controller] != 'message_templates'%>">
+<li class="<%= 'active' if params[:controller] != 'user/photos' and params[:controller] != 'messages' and params[:controller] != 'message_templates'%>">
   <%= link_to('Home', root_path,:title=>"Home") %>
 </li>
 <% if user_signed_in? %>
@@ -7,5 +7,8 @@
   </li>
   <li  class=" <%= 'active' if params[:controller] == 'message_templates' %>">
     <%= link_to('Message Templates', message_templates_path,:title=>"Message Templates") %>
+  </li>
+  <li  class=" <%= 'active' if params[:controller] == 'user/photos' %>">
+    <%= link_to('Photos', user_photos_path, :title=>"Images") %>
   </li>
 <%end%>

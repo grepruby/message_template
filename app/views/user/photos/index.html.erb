@@ -1,0 +1,15 @@
+<h3>Listing User Album</h3>
+<div class="span12">
+<table class="table table-condensed">
+<% @photos.each do |photo| %>
+  <tr>
+    <td><%= image_tag(photo.photo.url(:thumb)) %></td>
+    <td><%= image_tag(photo.photo.url(:medium)) %></td>
+    <td><%= link_to 'Destroy', user_photo_path(photo), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New Photo', new_user_photo_path %>

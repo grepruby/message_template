@@ -6,6 +6,10 @@ MessageManagement::Application.routes.draw do
   resources :message_templates
 
   devise_for :users
+  
+  namespace :user do
+    resources :photos, :only => [:index, :new, :create, :destroy]
+  end
 
   root :to => "home#index"
 
